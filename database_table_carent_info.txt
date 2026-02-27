@@ -1,0 +1,121 @@
+use vs code, react เป็น front, Backend (Node.js + Express + SQL) + vite + tailwind Css
+Tools = VS Code, PostgreSQL, Node.js(รัน JavaScript ฝั่ง backend / ใช้กับ npm)
+-----------------------------------------------------------------------------------
+Frameworks & Libraries 
+- React.js สร้างหน้าเว็บ (Frontend) แบบ SPA (Single Page App)
+- Express.js ใช้สร้าง backend / API (ทำงานร่วมกับ Node.js)
+- pg (npm package) ไลบรารีเชื่อมต่อ PostgreSQL จาก Node.js backend
+
+-- สร้าง schema ชื่อ carrent
+CREATE SCHEMA IF NOT EXISTS carrent;
+
+--เวลา query ต้องเขียนแบบ carrent.users, carrent.bookings เป็นต้น หรือสามารถ SET search_path ได้เพื่อใช้โดยไม่ต้องพิมพ์ชื่อ schema ทุกครั้ง:
+SET search_path TO carrent;
+SELECT * FROM users; -- จะดึง carrent.users
+
+1. users — ผู้ใช้งานระบบ
+CREATE TABLE carrent.carrent_users (
+  user_id INT GENERATED ALWAYS AS IDENTITY (START WITH 10000) PRIMARY KEY,
+  username VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  full_name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  phone VARCHAR(10) NOT NULL,
+  users_role VARCHAR(20) DEFAULT 'customer',
+  is_active BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+2. cars — รายการรถที่ให้เช่า
+CREATE TABLE carrent.cars (
+  cars_id SERIAL PRIMARY KEY,
+  brand VARCHAR(50) NOT NULL,
+  model VARCHAR(50) NOT NULL,
+  license_plate VARCHAR(20) UNIQUE NOT NULL,
+  year INT,
+  price_per_day DECIMAL(10, 2),
+  price_per_week DECIMAL(10, 2),
+  status VARCHAR(20) DEFAULT 'available', -- 'available', 'rented', 'maintenance'
+  image_url TEXT
+);
+
+3. rentals — การจองรถ
+CREATE TABLE carrent.rentals (
+  rentals_id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL REFERENCES carrent.carrent_users(user_id),
+  cars_id INT NOT NULL REFERENCES carrent.cars(cars_id),
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL,
+  total_price DECIMAL(10, 2) NOT NULL,
+  status VARCHAR(20) DEFAULT 'completed' CHECK (status IN ('pending', 'confirmed', 'completed', 'cancelled')),
+  created_at TIMESTAMP DEFAULT NOW(),
+  rental_type VARCHAR(20),
+  CHECK (end_date > start_date),
+  UNIQUE (user_id, cars_id, start_date, end_date)
+);
+
+4. payments — การชำระเงิน
+CREATE TABLE carrent.payments (
+  id SERIAL PRIMARY KEY,
+  booking_id INT REFERENCES carrent.bookings(id),
+  amount DECIMAL(10, 2),
+  method VARCHAR(50), -- เช่น 'credit_card', 'cash'
+  paid_at TIMESTAMP DEFAULT NOW()
+);
+
+5. (เพิ่มเติมได้) maintenance — ข้อมูลซ่อมบำรุงรถ
+CREATE TABLE carrent.maintenance (
+  id SERIAL PRIMARY KEY,
+  car_id INT REFERENCES carrent.cars(id),
+  description TEXT,
+  maintenance_date DATE,
+  cost DECIMAL(10, 2)
+);
+
+การติดตั้งเพื่อใช้เว็บ
+ถ้าใชคำสัง npm ไม่ได้ให้เปิด powershell ละกดรัน Adminnistrator แล้ววางคำสั่งนี้ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned แล้วกด Y
+1. PgAdmin4
+  คำสั่งเข้า postgres 
+    psql -U postgres -h localhost
+  เช็คการเชื่อมต่อ
+    psql -U postgres -h localhost -d postgres
+      \dn
+      \dt carrent.*  
+2. Node.js
+  เช็คเวอร์ชัน Node
+    node -v
+    npm -v
+3. Express
+  ติดตั้ง Express และ pg
+    npm install express pg cors dotenv
+4. react
+  ติดตั้ง dependencies
+    npm install
+  ติดตั้ง nodemon สำหรับ dev server
+    npm install -D nodemon
+  สร้าง package.json
+    npm init -y
+5. vite
+  npm create vite@latest frontend
+6. tailwindcss
+  ติดตั้ง npm install -D tailwindcss postcss autoprefixer
+
+การติดตั้ง vite
+-npm create vite@latest<ชื่อโปรเจค>
+-cd<ชื่อโปรเจค>
+-npm install
+-npm run dev
+
+การติดตั้ง tailwind css 
+npm install tailwindcss @tailwindcss/vite
+ติดตั้ง flowbite (UI (Component Library) ที่สร้างขึ้นจาก Tailwind CSS)
+npm install flowbite
+
+
+รหัสผ่านกับ username ของ PostgreSQL
+  user: 'postgres',
+  host: 'localhost',
+  database: 'postgres',
+  password: 'arinwangweerakun5582',
+  port: 5432,

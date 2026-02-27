@@ -1,0 +1,59 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;  /* เปิด scroll แนวตั้ง */
+}
+
+.car-image-detail {
+  width: 100%;
+  max-width: 465px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 1rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rent-button-group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.rent-button-inline {
+  width: 240px;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #5c5c5e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.rent-button-inline:hover {
+  background-color: #2e3033;
+}
+
+.rent-button-inline:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive for mobile */
+@media (max-width: 640px) {
+  .rent-button-inline {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.swal2-title-roboto-mono {
+  font-family: 'Roboto Mono', monospace !important;
+}
+

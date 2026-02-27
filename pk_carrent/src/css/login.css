@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import 'flowbite';
+
+.font-Roboto-Mono {
+  font-family: 'Roboto Mono', monospace;
+}
+.font-size-loginNav{
+  font-size: 1.3rem;
+}
+
+/* เพิ่มสีพื้นหลังให้ navbar */
+nav {
+  background-color: #ffffff !important; /* หรือสีเทาอื่น ๆ ที่คุณต้องการ */
+}
+
+/* ทำให้หน้าไม่เลื่อน */
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* สไตล์สำหรับปุ่มที่สามารถคลิกได้ */
+.btn-active {
+  background-color: #4b5563; /* สีเทาเข้ม */
+  color: white;
+}
+
+.btn-active:hover {
+  background-color: #6b7280; /* สีเทาที่เข้มขึ้นเมื่อ hover */
+}
+
+/* สไตล์สำหรับปุ่มที่ไม่สามารถคลิกได้ */
+.btn-disabled {
+  background-color: #d1d5db; /* สีเทาอ่อน */
+  color: #6b7280; /* สีเทาของข้อความ */
+  cursor: not-allowed;
+}
