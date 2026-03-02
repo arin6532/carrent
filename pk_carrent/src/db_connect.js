@@ -6,7 +6,7 @@ const client = new Client({
   user: 'postgres',
   host: 'localhost',
   database: 'postgres',
-  password: 'your_password',  // ควรใช้วิธีที่ปลอดภัยในการเก็บรหัสผ่าน
+  password: 'arinwangweerakun5582',  // password ของคุณ
   port: 5432,
 });
 

@@ -57,17 +57,17 @@ CREATE TABLE carrent.rentals (
 
 4. payments — การชำระเงิน
 CREATE TABLE carrent.payments (
-  id SERIAL PRIMARY KEY,
-  booking_id INT REFERENCES carrent.bookings(id),
+  payment_id SERIAL PRIMARY KEY,
+  rental_id INT REFERENCES carrent.rentals(rentals_id),
   amount DECIMAL(10, 2),
   method VARCHAR(50), -- เช่น 'credit_card', 'cash'
   paid_at TIMESTAMP DEFAULT NOW()
 );
 
-5. (เพิ่มเติมได้) maintenance — ข้อมูลซ่อมบำรุงรถ
+5. maintenance — ข้อมูลซ่อมบำรุงรถ
 CREATE TABLE carrent.maintenance (
-  id SERIAL PRIMARY KEY,
-  car_id INT REFERENCES carrent.cars(id),
+  mainten_id SERIAL PRIMARY KEY,
+  cars_id INT REFERENCES carrent.cars(cars_id),
   description TEXT,
   maintenance_date DATE,
   cost DECIMAL(10, 2)
