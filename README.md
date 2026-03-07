@@ -1,8 +1,10 @@
 # Car Rental Management System (Full Stack - React + Node + PostgreSQL)
 
 A full-stack car rental web application built using React (SPA) for the frontend and Node.js + Express for the backend, connected to a PostgreSQL database.
-
 This project demonstrates REST API development, relational database design, authentication logic, and modern UI development using Vite and Tailwind CSS.
+
+## Live Demo
+https://carrent-delta.vercel.app
 
 ##  Frontend (React - Single Page Application)
 
@@ -14,7 +16,7 @@ This project demonstrates REST API development, relational database design, auth
 
 ##  Backend (Node.js + Express)
 
-- `all_server.js` → Main Express server entry
+- `server.js` → Main Express server entry
 - `db_connect.js` → PostgreSQL connection configuration
 - `*_back.js` files → Backend route handlers
   - login_back.js
@@ -171,6 +173,10 @@ npm install
 
 ---
 
-## 3 Run Project
-npm start (backend)
-npm run dev(frontend)
+## Run Backend
+cd backend
+npm start
+
+## Run Frontend
+cd frontend
+npm run dev
