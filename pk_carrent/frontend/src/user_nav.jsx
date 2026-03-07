@@ -58,7 +58,7 @@ function UserHome_nav() {
     <nav className="font-Roboto-Mono bg-gray-800 border-gray-700 dark:bg-gray-900 dark:border-gray-700 relative">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/home" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src={logo} className="h-15" alt="Logo" />
+          <img src={logo} className="h-10" alt="Logo" />
           <span className="self-center font-semibold whitespace-nowrap dark:text-black font-size-loginNav">
             PHUKET CARRENT
           </span>

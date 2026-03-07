@@ -52,7 +52,7 @@ function Register() {
     <>
       <Home_nav />
       <div className="h-[calc(100vh-200px)] flex items-center justify-center">
-        <div className="login_height bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <div className="login_height bg-white p-8 rounded-lg shadow-lg w-full max-w-md overflow-y-auto">
           <h2 className="text-2xl font-bold mb-6 text-center text-gray-800 font-Roboto-Mono">
             Create Account
           </h2>
@@ -99,7 +99,7 @@ function Register() {
             />
             <button
               type="submit"
-              className="w-full bg-neutral-600 text-white py-2 rounded-md hover:bg-neutral-700 transition-colors"
+              className="w-full bg-gray-600 text-white py-2 rounded-md border border-gray-400 hover:bg-gray-700 transition-colors"
             >
               Register
             </button>

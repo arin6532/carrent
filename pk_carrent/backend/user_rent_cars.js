@@ -1,10 +1,8 @@
 // user_rent_cars.js
 import express from 'express';
-import { connectToDatabase, queryDatabase } from './db_connect.js';
+import { queryDatabase } from './db_connect.js';
 
 const router = express.Router();
-
-connectToDatabase();
 
 router.post('/', async (req, res) => {
   try {

@@ -1,10 +1,7 @@
 import express from "express";
-import { connectToDatabase, queryDatabase } from "./db_connect.js";
+import {queryDatabase } from "./db_connect.js";
 
 const router = express.Router();
-
-// เรียก connectToDatabase() หนึ่งครั้ง
-connectToDatabase();
 
 // รถที่ว่างสำหรับหน้า Home ก่อน login
 router.get("/", async (_req, res) => {

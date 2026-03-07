@@ -25,7 +25,7 @@ function Home_nav() {
     <nav className="font-Roboto-Mono bg-gray-800 !important border-gray-700 dark:bg-gray-900 dark:border-gray-700 relative">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src={logo} className="h-15" alt="Flowbite Logo" />
+          <img src={logo} className="h-10" alt="Flowbite Logo" />
           <span
             className="self-center font-semibold whitespace-nowrap dark:text-black font-size-loginNav"
           >

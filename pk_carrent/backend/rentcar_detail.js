@@ -1,9 +1,8 @@
 import express from 'express';
-import { connectToDatabase, queryDatabase } from './db_connect.js';
+import { queryDatabase } from './db_connect.js';
 
 const router = express.Router();
 
-connectToDatabase();
 
 router.get('/:car_id', async (req, res) => {
     const carId = req.params.car_id;

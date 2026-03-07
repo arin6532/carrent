@@ -4,14 +4,6 @@ A full-stack car rental web application built using React (SPA) for the frontend
 
 This project demonstrates REST API development, relational database design, authentication logic, and modern UI development using Vite and Tailwind CSS.
 
----
-
-# Project Architecture
-
-This project uses a **single-repository structure (monorepo-style)** where both frontend and backend logic are maintained in the same project directory for simplified development.
-
-Although frontend and backend are not separated into different folders, they are logically divided:
-
 ##  Frontend (React - Single Page Application)
 
 - JSX components (Home.jsx, Booking.jsx, profile.jsx, history.jsx, etc.)
@@ -180,4 +172,5 @@ npm install
 ---
 
 ## 3 Run Project
-npm run dev:all (run project)
+npm start (backend)
+npm run dev(frontend)

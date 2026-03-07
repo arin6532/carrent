@@ -1,12 +1,10 @@
 // profile_back.js
 import express from 'express';
 import bcrypt from 'bcryptjs';
-import { connectToDatabase, queryDatabase } from './db_connect.js';
+import { queryDatabase } from './db_connect.js';
 
 const router = express.Router();
 
-// เชื่อมต่อฐานข้อมูล (สมมติฟังก์ชัน connectToDatabase มีอยู่ใน db_connect.js)
-connectToDatabase();
 
 // ดึงข้อมูลผู้ใช้ ตาม userId
 router.get('/:userId', async (req, res) => {

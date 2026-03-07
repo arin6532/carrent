@@ -1,10 +1,8 @@
-// car_list_back.js
 import express from 'express';
-import { connectToDatabase, queryDatabase } from './db_connect.js';
+import { queryDatabase } from './db_connect.js';
 
 console.log("✅ booking_carlist.js loaded");
 const router = express.Router();
-connectToDatabase();
 
 // ดึงรายชื่อรถทั้งหมดที่ว่าง
 router.get('/', async (req, res) => {

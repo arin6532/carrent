@@ -1,11 +1,8 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
-import { connectToDatabase, queryDatabase } from './db_connect.js';
+import { queryDatabase } from './db_connect.js';
 
 const router = express.Router();
-
-// เชื่อมต่อฐานข้อมูล
-connectToDatabase();
 
 router.post('/', async (req, res) => {
   try {

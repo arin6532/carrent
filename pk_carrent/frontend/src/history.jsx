@@ -190,26 +190,55 @@ export default function History() {
           </div>
         </div>
 
-        {/* Modal */}
         {selected && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <div className="absolute inset-0 bg-black/40" onClick={() => setSelected(null)} />
-            <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full p-6 z-10">
-              <div className="flex items-start justify-between">
-                <h2 className="text-lg font-semibold">Booking Details #{selected.booking_id}</h2>
-              </div>
-              <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-                <img src={selected.car.image_url} className="w-full h-40 object-cover rounded" />
-                <div className="md:col-span-2">
-                  <div className="text-sm text-gray-600">Brand/Model: <span className="font-medium">{selected.car.brand} {selected.car.model}</span></div>
-                  <div className="mt-2 text-sm text-gray-600">Period: <span className="font-medium">{formatDate(selected.start_date)} — {formatDate(selected.end_date)}</span></div>
-                  <div className="mt-2 text-sm text-gray-600">Total Price: <span className="font-medium">฿{Number(selected.total_price).toFixed(2)}</span></div>
-                  <div className="mt-2 text-sm text-gray-600">Status: <span className="font-medium">{selected.status}</span></div>
-                  <div className="mt-4 text-sm text-gray-700">Notes: {selected.note || "-"}</div>
+            <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 z-10">
+              <h2 className="text-lg font-semibold mb-4">Booking Details #{selected.booking_id}</h2>
+              
+                <div className="grid md:grid-cols-2 gap-6 items-center">
+                  
+                  <div className="flex justify-center">
+                    <img
+                      src={selected.car.image_url}
+                      alt={`${selected.car.brand} ${selected.car.model}`}
+                      className="w-full max-w-[320px] h-auto object-contain"
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-2 text-sm text-gray-600">
+                    <div>
+                      Brand/Model:{" "}
+                      <span className="font-medium">
+                        {selected.car.brand} {selected.car.model}
+                      </span>
+                    </div>
+
+                    <div>
+                      Period:{" "}
+                      <span className="font-medium">
+                        {formatDate(selected.start_date)} — {formatDate(selected.end_date)}
+                      </span>
+                    </div>
+
+                    <div>
+                      Total Price:{" "}
+                      <span className="font-medium">
+                        ฿{Number(selected.total_price).toFixed(2)}
+                      </span>
+                    </div>
+
+                    <div>
+                      Status: <span className="font-medium">{selected.status}</span>
+                    </div>
+
+                    <div>Notes: {selected.note || "-"}</div>
+                  </div>
+
                 </div>
-              </div>
-              <div className="mt-6 flex justify-end space-x-2">
-                <button onClick={() => setSelected(null)} className="px-4 py-2 border rounded">Close</button>
+
+              <div className="mt-6 flex justify-end">
+                <button onClick={() => setSelected(null)} className="px-4 py-2 border rounded hover:bg-gray-50">Close</button>
               </div>
             </div>
           </div>

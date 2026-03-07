@@ -1,10 +1,8 @@
 import express from "express";
-import { connectToDatabase, queryDatabase } from "./db_connect.js";
+import { queryDatabase } from "./db_connect.js";
 
 const router = express.Router();
 
-// เชื่อมฐานข้อมูล (ครั้งเดียวพอ ถ้าอยู่ใน main server ใช้ที่เดียวพอ)
-connectToDatabase();
 
 router.get("/:id", async (req, res) => {
   const userId = parseInt(req.params.id);
