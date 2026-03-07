@@ -18,7 +18,7 @@ export default function History() {
     async function fetchData() {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:3001/history_carrent/${userId}`);
+        const res = await fetch(`https://carrent-nhu6.onrender.com/history_carrent/${userId}`);
         if (!res.ok) throw new Error("Failed to fetch user data");
         
         const data = await res.json();

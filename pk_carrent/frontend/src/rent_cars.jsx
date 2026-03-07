@@ -27,7 +27,7 @@ function Rent_cars() {
     const fetchCarDetails = async () => {
       try {
         // เรียก API backend ดึงรายละเอียดรถตาม cars_id
-        const response = await fetch(`http://localhost:3001/car_details/${cars_id}`);
+        const response = await fetch(`https://carrent-nhu6.onrender.com/car_details/${cars_id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch car details");
         }
@@ -64,7 +64,7 @@ function Rent_cars() {
     }
 
     // รีเฟรชสถานะล่าสุดของรถก่อนเช่า เพื่อป้องกันจองซ้ำ
-    const statusCheck = await fetch(`http://localhost:3001/car_details/${cars_id}`);
+    const statusCheck = await fetch(`https://carrent-nhu6.onrender.com/car_details/${cars_id}`);
     if (!statusCheck.ok) {
       Swal.fire({
         icon: "error",

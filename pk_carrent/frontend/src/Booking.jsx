@@ -17,7 +17,7 @@ function Booking() {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await fetch("http://localhost:3001/car_list");
+        const response = await fetch("https://carrent-nhu6.onrender.com/car_list");
         if (!response.ok) {
           throw new Error("Failed to fetch car data");
         }

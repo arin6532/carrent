@@ -18,7 +18,7 @@ const handleLogin = async (e) => {
   e.preventDefault(); // ป้องกันการ reload หน้าเมื่อ submit form
 
   try {
-    const response = await fetch("http://localhost:3001/login", {
+    const response = await fetch("https://carrent-nhu6.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

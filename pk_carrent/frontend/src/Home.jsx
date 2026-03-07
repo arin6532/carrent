@@ -30,7 +30,7 @@ function Home() {
 
   const fetchUserName = async (userId) => {
     try {
-      const response = await fetch(`http://localhost:3001/user/${userId}`);
+      const response = await fetch(`https://carrent-nhu6.onrender.com/user/${userId}`);
       if (response.ok) {
         const userData = await response.json();
         setUserName(userData.full_name || userData.username);

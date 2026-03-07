@@ -12,7 +12,7 @@ function Login_home() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("http://localhost:3001/login_car_list");
+        const res = await fetch("https://carrent-nhu6.onrender.com/login_car_list");
         if (!res.ok) throw new Error();
         const data = await res.json();
         setCarData(Array.isArray(data) ? data : []);

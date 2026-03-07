@@ -20,7 +20,7 @@ function Profile() {
   useEffect(() => {
     if (!userId) return;
 
-    fetch(`http://localhost:3001/user/${userId}`)
+    fetch(`https://carrent-nhu6.onrender.com/user/${userId}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch user data");
         return res.json();
@@ -61,7 +61,7 @@ function Profile() {
       const dataToSend = { ...userData };
       if (!dataToSend.password) delete dataToSend.password;
 
-      const response = await fetch(`http://localhost:3001/user/${userId}`, {
+      const response = await fetch(`https://carrent-nhu6.onrender.com/user/${userId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dataToSend),

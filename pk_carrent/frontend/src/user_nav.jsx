@@ -24,7 +24,7 @@ function UserHome_nav() {
     const userId = localStorage.getItem("userId");
     if (!userId) return;
 
-    fetch(`http://localhost:3001/nav_username/${userId}`)
+    fetch(`https://carrent-nhu6.onrender.com/nav_username/${userId}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
