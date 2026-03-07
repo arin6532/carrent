@@ -134,7 +134,7 @@ function Rent_cars() {
 
         try {
           // ส่งข้อมูลเช่ารถไป backend ด้วย POST method
-          const response = await fetch("http://localhost:3001/user_rent_cars", {
+          const response = await fetch("https://carrent-nhu6.onrender.com/user_rent_cars", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(rentalData),
