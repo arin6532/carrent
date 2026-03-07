@@ -2,8 +2,6 @@
 import express from "express";
 import cors from "cors";
 
-import { connectToDatabase } from "./db_connect.js";
-
 import loginRouter from "./login_back.js";
 import login_home_baceRouter from "./login_home_back.js";
 import registerRouter from "./regis_back.js";
@@ -15,13 +13,10 @@ import user_rent_carsRouter from "./user_rent_cars.js";
 import history_rentRouter from "./history_rent.js";
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 10000;
 
 app.use(cors());
 app.use(express.json());
-
-/* เชื่อมต่อ database */
-connectToDatabase();
 
 /* routes */
 app.use("/login", loginRouter);
