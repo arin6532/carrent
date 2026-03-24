@@ -5,6 +5,7 @@ This project demonstrates REST API development, relational database design, auth
 
 ## Live Demo
 https://carrent-delta.vercel.app
+(Please allow ~20s for the initial load as the server wakes up)
 
 ##  Frontend (React - Single Page Application)
 
