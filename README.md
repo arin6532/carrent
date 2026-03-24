@@ -76,12 +76,31 @@ Future improvement:
 ---
 ## Database Configuration
 
-Before running the project, open `db_connect.js` 
-and update the PostgreSQL password:
+If you deploy the backend on Render:
 
-password: 'your_password'
+1. Create a PostgreSQL database on Render
+2. Open the database dashboard
+3. Copy the **External Database URL**
+4. Go to your Web Service → Environment
+5. Create an Environment Variable
 
-Replace `your_password` with your actual PostgreSQL password.
+Key:
+DATABASE_URL
+
+Value:
+(paste the External Database URL)
+
+Example format:
+postgresql://username:password@host:5432/database_name
+
+## Environment Variables
+
+Create a `.env` file in the backend folder.
+
+Example:
+
+DATABASE_URL=postgresql://username:password@host:5432/database_name
+PORT=3000
 
 # Database Design
 1. users (System user)
