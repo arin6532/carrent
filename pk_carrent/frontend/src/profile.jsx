@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { UserHome_nav } from "./user_nav.jsx";
 import Swal from "sweetalert2";
 
+const API = import.meta.env.VITE_API_URL;
+
 function Profile() {
   const userId = localStorage.getItem("userId");
 
@@ -20,7 +22,7 @@ function Profile() {
   useEffect(() => {
     if (!userId) return;
 
-    fetch(`https://carrent-nhu6.onrender.com/user/${userId}`)
+    fetch(`${API}/user/${userId}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch user data");
         return res.json();
@@ -61,7 +63,7 @@ function Profile() {
       const dataToSend = { ...userData };
       if (!dataToSend.password) delete dataToSend.password;
 
-      const response = await fetch(`https://carrent-nhu6.onrender.com/user/${userId}`, {
+      const response = await fetch(`${API}/user/${userId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dataToSend),

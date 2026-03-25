@@ -1,7 +1,7 @@
 import express from 'express';
 import { queryDatabase } from './db_connect.js';
 
-console.log("✅ booking_carlist.js loaded");
+// console.log("✅ booking_carlist.js loaded");
 const router = express.Router();
 
 // ดึงรายชื่อรถทั้งหมดที่ว่าง

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { UserHome_nav } from "./user_nav.jsx";
 
+const API = import.meta.env.VITE_API_URL;
+
 export default function History() {
   const userId = localStorage.getItem("userId");
   const [historyData, setHistoryData] = useState([]);
@@ -18,7 +20,7 @@ export default function History() {
     async function fetchData() {
       setLoading(true);
       try {
-        const res = await fetch(`https://carrent-nhu6.onrender.com/history_carrent/${userId}`);
+        const res = await fetch(`${API}/history_carrent/${userId}`);
         if (!res.ok) throw new Error("Failed to fetch user data");
         
         const data = await res.json();

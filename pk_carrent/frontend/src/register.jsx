@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Home_nav } from "./login_nav.jsx";
 import { useNavigate } from "react-router-dom";
 
+const API = import.meta.env.VITE_API_URL;
+
 function Register() {
   const [regis_username, setregis_Username] = useState("");
   const [regis_password, setregis_Password] = useState("");
@@ -20,7 +22,7 @@ function Register() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://carrent-nhu6.onrender.com/register", {
+      const response = await fetch(`${API}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

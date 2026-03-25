@@ -6,6 +6,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { UserHome_nav } from "./user_nav.jsx";
 import Swal from "sweetalert2";
 
+const API = import.meta.env.VITE_API_URL;
+
 function Rent_cars() {
   // ดึงข้อมูล location เพื่ออ่านค่า cars_id ที่ส่งมาจากหน้าอื่น
   const location = useLocation();
@@ -27,7 +29,7 @@ function Rent_cars() {
     const fetchCarDetails = async () => {
       try {
         // เรียก API backend ดึงรายละเอียดรถตาม cars_id
-        const response = await fetch(`https://carrent-nhu6.onrender.com/car_details/${cars_id}`);
+        const response = await fetch(`${API}/car_details/${cars_id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch car details");
         }
@@ -64,7 +66,7 @@ function Rent_cars() {
     }
 
     // รีเฟรชสถานะล่าสุดของรถก่อนเช่า เพื่อป้องกันจองซ้ำ
-    const statusCheck = await fetch(`https://carrent-nhu6.onrender.com/car_details/${cars_id}`);
+    const statusCheck = await fetch(`${API}/car_details/${cars_id}`);
     if (!statusCheck.ok) {
       Swal.fire({
         icon: "error",
@@ -134,7 +136,7 @@ function Rent_cars() {
 
         try {
           // ส่งข้อมูลเช่ารถไป backend ด้วย POST method
-          const response = await fetch("https://carrent-nhu6.onrender.com/user_rent_cars", {
+          const response = await fetch(`${API}/user_rent_cars`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(rentalData),
