@@ -4,8 +4,6 @@ import { Home_nav } from "./login_nav.jsx";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
-const API = import.meta.env.VITE_API_URL;
-
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +18,7 @@ const handleLogin = async (e) => {
   e.preventDefault(); // ป้องกันการ reload หน้าเมื่อ submit form
 
   try {
-    const response = await fetch(`${API}/login`, {
+    const response = await fetch("https://carrent-backend-r2g6.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

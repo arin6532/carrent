@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 import logo from "./assets/logo_pk_carrent.png";
 import { Link } from "react-router-dom";
 
-const API = import.meta.env.VITE_API_URL;
-
 function UserHome_nav() {
   const [fullName, setFullName] = useState("");
   const navigate = useNavigate();
@@ -26,7 +24,7 @@ function UserHome_nav() {
     const userId = localStorage.getItem("userId");
     if (!userId) return;
 
-    fetch(`${API}/nav_username/${userId}`)
+    fetch(`https://carrent-backend-r2g6.onrender.com/nav_username/${userId}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

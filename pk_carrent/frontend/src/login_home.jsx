@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { Home_nav } from "./login_nav";
 
-const API = import.meta.env.VITE_API_URL;
-
 function Login_home() {
   const [carData, setCarData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,7 +12,7 @@ function Login_home() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(`${API}/login_car_list`);
+        const res = await fetch("https://carrent-backend-r2g6.onrender.com/login_car_list");
         if (!res.ok) throw new Error();
         const data = await res.json();
         setCarData(Array.isArray(data) ? data : []);

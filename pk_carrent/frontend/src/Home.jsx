@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserHome_nav } from "./user_nav.jsx";  
 
-const API = import.meta.env.VITE_API_URL;
-
 function Home() {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
@@ -32,7 +30,7 @@ function Home() {
 
   const fetchUserName = async (userId) => {
     try {
-      const response = await fetch(`${API}/user/${userId}`);
+      const response = await fetch(`https://carrent-backend-r2g6.onrender.com/user/${userId}`);
       if (response.ok) {
         const userData = await response.json();
         setUserName(userData.full_name || userData.username);

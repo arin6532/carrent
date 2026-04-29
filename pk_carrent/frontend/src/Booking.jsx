@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { UserHome_nav } from "./user_nav.jsx";
 
-const API = import.meta.env.VITE_API_URL;
-
 function Booking() {
   const [carData, setCarData] = useState([]); // ข้อมูลรถทั้งหมดจาก API
   const [searchTerm, setSearchTerm] = useState(""); // เก็บข้อความค้นหา
@@ -19,7 +17,7 @@ function Booking() {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await fetch(`${API}/car_list`);
+        const response = await fetch("https://carrent-backend-r2g6.onrender.com/car_list");
         if (!response.ok) {
           throw new Error("Failed to fetch car data");
         }
